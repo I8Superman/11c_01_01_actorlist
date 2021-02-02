@@ -2,6 +2,7 @@
 
 let theActors;
 let theFilter = "all";
+let popup = document.querySelector("#popup");
 
 document.addEventListener("DOMContentLoaded", start);
 
@@ -33,9 +34,18 @@ function showActors() {
             let clone = temp.cloneNode(true).content;
             clone.querySelector("h3").textContent = actor.fullname;
             clone.querySelector("p").textContent = actor.movie;
+            clone.querySelector(".actor").addEventListener("click", () => showDetails(actor));
             dest.appendChild(clone);
         }
     })
+}
+
+function showDetails(actor) {
+    console.log(actor);
+    popup.style.display = "block";
+    document.querySelector(".close").addEventListener("click", () => popup.style.display = "none");
+    popup.querySelector("h3").textContent = actor.fullname;
+    popup.querySelector("p").textContent = actor.movie;
 }
 
 function buttonClick() {
