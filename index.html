@@ -7,8 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header>
+        <h1>11C_01_01 Actor List</h1>
+        <nav id="filter_buttons">
+            <div class="filter_button">
+                <h3>All</h3>
+            </div>
+            <div class="filter_buttons"></div>
+        </nav>
+    </header>
+    <main>
+        <secion id="actors"></secion>
+    </main>
+    <template id="filter_button_template">
+        <div class="filter_button">
+            <h3></h3>
+        </div>
+    </template>
+    <template id="actor_template">
+        <article class="actor">
+            <h2></h2>
+            <p></p>
+        </article>
+    </template>
     <footer>
         <ul>
             <li>Morten Gross</li>
