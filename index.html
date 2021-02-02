@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11C_01_01 Actor List</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>11C_01_01 Actor List</h1>
         <nav id="filter_buttons">
-            <button class="filter clicked" data-movie="all">All actors</button>
-            <button class="filter" data-movie="Fight Club">Fight Club</button>
-            <button class="filter" data-movie="Goodfellas">Goodfellas</button>
-            <button class="filter" data-movie="Inception">Inception</button>
-            <button class="filter" data-movie="Pulp Fiction">Pulp Fiction</button>
+            <div class="filter clicked" data-movie="all">All actors</div>
+            <div class="filter" data-movie="Fight Club">Fight Club</div>
+            <div class="filter" data-movie="Goodfellas">Goodfellas</div>
+            <div class="filter" data-movie="Inception">Inception</div>
+            <div class="filter" data-movie="Pulp Fiction">Pulp Fiction</div>
         </nav>
     </header>
+
     <main>
         <h2 class="section_header">All actors</h2>
         <secion id="actors"></secion>
     </main>
-    <template id="filter_button_template">
-        <div class="filter_button">
-            <h3></h3>
-        </div>
-    </template>
+
     <template id="actor_template">
         <article class="actor">
             <h3></h3>
             <p></p>
         </article>
     </template>
+
     <footer>
         <ul>
             <li>Morten Gross</li>
@@ -41,5 +41,7 @@
         </ul>
     </footer>
 </body>
+
 <script src="script.js"></script>
+
 </html>
