@@ -69,6 +69,42 @@ h1, h2, h3, p {
     box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+#popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+#popup>article {
+    position: relative;
+    margin: 4rem auto;
+    padding: 15px;
+    width: 80vw;
+    background-color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 15px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.popup_column {
+    flex-basis: 45%;
+    flex-grow: 1;
+} 
+
 footer {
     background-color: #343434;
     color: #ececec;
@@ -99,4 +135,7 @@ ul {
         max-width: 542.5px;
     }
 
+    #popup>article {
+        width: 50vw;
+    }
 }
