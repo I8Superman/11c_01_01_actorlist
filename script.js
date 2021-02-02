@@ -1,6 +1,7 @@
 "use strict"
 
 let theActors;
+let theFilter = "all";
 
 document.addEventListener("DOMContentLoaded", start);
 
@@ -12,12 +13,11 @@ async function start() {
     theActors = await jsonData.json();
     console.log(theActors);
 
-    let filter = theActors.filter(movie => movie.movie[0]);
-    console.log("Filter", filter)
+    document.querySelectorAll(".filter").forEach((button) => {
+        button.addEventListener("click", buttonClick);
+    })
 
     showActors();
-
-    // generateFilterButtons();
 }
 
 function showActors() {
@@ -28,25 +28,24 @@ function showActors() {
     dest.innerHTML = "";
 
     theActors.forEach(actor => {
-        console.log(actor);
-        let clone = temp.cloneNode(true).content;
-        clone.querySelector("h2").textContent = actor.fullname;
-        clone.querySelector("p").textContent = actor.movie;
-        dest.appendChild(clone);
+        if (theFilter == "all" || theFilter == actor.movie) {
+            //console.log(actor);
+            let clone = temp.cloneNode(true).content;
+            clone.querySelector("h3").textContent = actor.fullname;
+            clone.querySelector("p").textContent = actor.movie;
+            dest.appendChild(clone);
+        }
     })
 }
 
-// function generateFilterButtons() {
-//     console.log("generateFilterButtons");
-
-//     let dest = document.querySelector(".filter_buttons");
-//     let temp = document.querySelector("#filter_button_template");
-
-//     theActors.forEach(movie => {
-//         let clone = temp.cloneNode(true).content;
-
-//         clone.querySelector("h3").textContent = movie.movie;
-
-//         dest.appendChild(clone);
-//     })
-// }
+function buttonClick() {
+    //console.log("buttonClick");
+    theFilter = this.dataset.movie;
+    //console.log(theFilter);
+    document.querySelector(".section_header").textContent = this.textContent;
+    document.querySelectorAll(".filter").forEach((button) => {
+        button.classList.remove("clicked");
+    })
+    this.classList.add("clicked");
+    showActors(theFilter);
+}
